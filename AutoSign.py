@@ -109,6 +109,7 @@ def qiandao(url:str,address:str,sleepTime:int,SENDKEY:str):
         print('\n')
             
 def push(SENDKEY,res,TGCHATID,BOTTOKEN):
+    flag=0
     if SENDKEY == '':
         print("SENDKEY 为空，跳过 server 酱推送")
     else:
@@ -116,11 +117,13 @@ def push(SENDKEY,res,TGCHATID,BOTTOKEN):
             #server酱推送
             rServerchan = requests.post('https://sctapi.ftqq.com/{sendkey}.send'.format(sendkey=SENDKEY), data={'text': "学习通-签到成功", 'desp': course_dict[currClass][0]+"签到成功"})
         elif res.text=='您已签到过了':
-            print("签到过了,所以不推送给Server酱")
+            flag=1
             #rServerchan = requests.post('https://sctapi.ftqq.com/{sendkey}.send'.format(sendkey=SENDKEY), data={'text': "学习通-已签到过了", 'desp': course_dict[currClass][0]+"您已签到过了"})
         else:
             rServerchan = requests.post('https://sctapi.ftqq.com/{sendkey}.send'.format(sendkey=SENDKEY), data={'text': "学习通-签到失败", 'desp': "签到失败，原因："+res.text})
-        if rServerchan.status_code == 200:
+        if flag == 1:
+            print("签到过了,所以不推送给Server酱")
+        elif rServerchan.status_code == 200:
             print("Server酱推送成功")
         elif rServerchan.status_code == 400:
             print("Server酱推送失败，SENDKEY 填写有误")
