@@ -21,9 +21,9 @@
 
 GitHub有一定延迟，所以可以不用设置sleepTime
 ## SENDKEY
-sever酱微信推送的sendkey
+Server酱微信推送的sendkey
 
-[sever酱](https://sct.ftqq.com/)
+[Server酱](https://sct.ftqq.com/)
 ## QQSENDKEY
 Qmsg酱QQ推送的sendkey
 
@@ -40,7 +40,7 @@ actions启用Workflows
 
 /.github/workflows/main.yml中的cron部分，去除schedule和cron前面的井号#
 
-定时任务，每5分钟运行一次（UTC时间）
+定时任务，每5分钟运行一次（UTC时间），github actions最短间隔5分钟
 ```
 - cron: '*/5 * * * *'
 ```
