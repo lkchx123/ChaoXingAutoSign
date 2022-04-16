@@ -24,6 +24,10 @@ GitHub有一定延迟，所以可以不用设置sleepTime
 sever酱微信推送的sendkey
 
 [sever酱](https://sct.ftqq.com/)
+## QQSENDKEY
+Qmsg酱QQ推送的sendkey
+
+[Qmsg酱](https://qmsg.zendee.cn/)
 ## ADDRESS
 位置签到所需的地址（不设环境变量的话，可以直接在代码中改为定值）
 ## ENC（已废弃）
