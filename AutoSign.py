@@ -66,7 +66,7 @@ def getclass():
     else:
             print("error:课程处理失败")
 
-def qiandao(url:str,address:str,sleepTime:int,SENDKEY:str):
+def qiandao(url:str,address:str,sleepTime:int,SENDKEY:str,QQSENDKEY:str,TGCHATID:str,BOTTOKEN:str):
    
     url='https://mobilelearn.chaoxing.com/widget/pcpick/stu/index?courseId={courseid}&jclassId={clazzid}'.format(courseid=re.findall(r"courseid=(.*?)&",url)[0],clazzid=re.findall(r"clazzid=(.*?)&",url)[0])
     #print(url)
@@ -105,10 +105,10 @@ def qiandao(url:str,address:str,sleepTime:int,SENDKEY:str):
             print(res.text)
             if '非签到活动' in res.text:
                 continue
-            push(SENDKEY,res,TGCHATID,BOTTOKEN)
+            push(SENDKEY,res,QQSENDKEY,TGCHATID,BOTTOKEN)
         print('\n')
             
-def push(SENDKEY,res,TGCHATID,BOTTOKEN):
+def push(SENDKEY,res,QQSENDKEY,TGCHATID,BOTTOKEN):
     flag=0
     if SENDKEY == '':
         print("SENDKEY 为空，跳过 server 酱推送")
@@ -199,5 +199,5 @@ if __name__=='__main__':
     #print(course_dict)
     for currClass in course_dict:
         #print(course_dict[i][1])
-        qiandao(course_dict[currClass][1],address,sleepTime,SENDKEY)
+        qiandao(course_dict[currClass][1],address,sleepTime,SENDKEY,QQSENDKEY,TGCHATID,BOTTOKEN)
 
