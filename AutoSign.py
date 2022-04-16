@@ -135,21 +135,21 @@ def push(SENDKEY,res,QQSENDKEY,TGCHATID,BOTTOKEN):
     else:
         if res.text == 'success':
             # Qmsg酱推送
-            rQmsgchan = requests.post('https://qmsg.zendee.cn:443/send/{sendkey}'.format(sendkey=SENDKEY),
+            rQmsgchan = requests.post('https://qmsg.zendee.cn:443/send/{sendkey}'.format(sendkey=QQSENDKEY),
                           data={'msg': "学习通-签到成功\n" + course_dict[currClass][0] + "签到成功"})
         elif res.text == '您已签到过了':
             flag = 1
-            # rQmsgchan = requests.post('https://qmsg.zendee.cn:443/send/{sendkey}'.format(sendkey=SENDKEY),
+            # rQmsgchan = requests.post('https://qmsg.zendee.cn:443/send/{sendkey}'.format(sendkey=QQSENDKEY),
             #               data={'msg': "学习通-已签到过了\n"+course_dict[currClass][0]+"您已签到过了"})
         else:
-            rQmsgchan = requests.post('https://qmsg.zendee.cn:443/send/{sendkey}'.format(sendkey=SENDKEY),
+            rQmsgchan = requests.post('https://qmsg.zendee.cn:443/send/{sendkey}'.format(sendkey=QQSENDKEY),
                           data={'msg': "学习通-签到失败\n签到失败，原因：" + res.text})
         if flag == 1:
             print("签到过了,所以不推送给Qmsg酱")
         elif rQmsgchan.status_code == 200:
             print("Qmsg酱推送成功")
         elif rQmsgchan.status_code == 400:
-            print("Qmsg酱推送失败，SENDKEY 填写有误")
+            print("Qmsg酱推送失败，QQSENDKEY 填写有误")
         else:
             print("Qmsg酱推送失败，未知错误")
 
