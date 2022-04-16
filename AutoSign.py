@@ -191,7 +191,7 @@ if __name__=='__main__':
     #enc=''
     
     #监测到签到活动后，延迟多久进行签到，1s=1000ms
-    sleepTime=10
+    sleepTime=1
 
     login(username,password)
     getclass()
