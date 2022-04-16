@@ -36,6 +36,7 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
           SENDKEY: ${{ secrets.SENDKEY }}
+          QQSENDKEY: ${{ secrets.QQSENDKEY }}
           TGCHATID: ${{ secrets.TGCHATID }}
           BOTTOKEN: ${{ secrets.BOTTOKEN }}
           ADDRESS: ${{ secrets.ADDRESS }}
