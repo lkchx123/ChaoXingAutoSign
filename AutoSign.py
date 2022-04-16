@@ -123,14 +123,14 @@ def push(SENDKEY, res, QQSENDKEY, TGCHATID, BOTTOKEN):
         if res.text == 'success':
             # server酱推送
             rServerchan = requests.post('https://sctapi.ftqq.com/{sendkey}.send'.format(sendkey=SENDKEY),
-                                        data={'text': "学习通-签到成功\n", 'desp': course_dict[currClass][0] + "签到成功"})
+                                        data={'text': "学习通-签到成功", 'desp': course_dict[currClass][0] + "签到成功"})
         elif res.text == '您已签到过了':
             flag = 1
             # rServerchan = requests.post('https://sctapi.ftqq.com/{sendkey}.send'.format(sendkey=SENDKEY),
-            #                              data={'text': "学习通-已签到过了\n", 'desp': course_dict[currClass][0]+"您已签到过了"})
+            #                              data={'text': "学习通-已签到过了", 'desp': course_dict[currClass][0]+"您已签到过了"})
         else:
             rServerchan = requests.post('https://sctapi.ftqq.com/{sendkey}.send'.format(sendkey=SENDKEY),
-                                        data={'text': "学习通-签到失败\n", 'desp': "签到失败，原因：" + res.text})
+                                        data={'text': "学习通-签到失败", 'desp': "签到失败，原因：" + res.text})
         if flag == 1:
             print("签到过了,所以不推送给Server酱")
         elif rServerchan.status_code == 200:
