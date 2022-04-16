@@ -108,7 +108,7 @@ def qiandao(url:str,address:str,sleepTime:int,SENDKEY:str):
             push(SENDKEY,res,TGCHATID,BOTTOKEN)
         print('\n')
             
-def push(SENDKEY,res,TGCHATID,BOTTOKEN,QQSENDKEY):
+def push(SENDKEY,res,TGCHATID,BOTTOKEN):
     flag=0
     if SENDKEY == '':
         print("SENDKEY 为空，跳过 server 酱推送")
